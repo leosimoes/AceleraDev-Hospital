@@ -1,7 +1,8 @@
 package gestao.services;
 
-import gestao.entities.Hospital;
-import gestao.repositories.HospitalRepository;
+import gestao.Hospital.HospitalService;
+import gestao.Hospital.Hospital;
+import gestao.Hospital.HospitalRepository;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

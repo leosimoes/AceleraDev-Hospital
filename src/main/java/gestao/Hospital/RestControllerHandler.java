@@ -1,4 +1,4 @@
-package gestao.error;
+package gestao.Hospital;
 
 import javassist.NotFoundException;
 import org.springframework.http.HttpStatus;

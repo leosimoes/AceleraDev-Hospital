@@ -1,7 +1,5 @@
-package gestao.services;
+package gestao.Hospital;
 
-import gestao.entities.Hospital;
-import gestao.repositories.HospitalRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +13,7 @@ public class HospitalService {
     public HospitalService(HospitalRepository hospitalRepository) {
         this.hospitalRepository = hospitalRepository;
     }
+
 
     public List<Hospital> findAll() {
         return this.hospitalRepository.findAll();

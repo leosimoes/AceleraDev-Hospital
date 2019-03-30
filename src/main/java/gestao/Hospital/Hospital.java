@@ -1,4 +1,4 @@
-package gestao.entities;
+package gestao.Hospital;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
