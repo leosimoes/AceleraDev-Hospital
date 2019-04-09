@@ -1,6 +1,8 @@
 package gestao.models.hospital;
 
 import gestao.models.banco_de_sangue.BancoDeSangueENUM;
+import gestao.models.produto.Produto;
+import java.util.List;
 
 import org.hibernate.validator.constraints.Range;
 
@@ -60,7 +62,9 @@ public class Hospital {
     @ElementCollection
     private Map<TipoLeitoENUM, Integer> leitos;
     //
-
+    
+    @ElementCollection
+    private List<Produto> produtos;
 
     public Long getId() {
         return id;
@@ -174,4 +178,17 @@ public class Hospital {
     public void setLeitos(Map<TipoLeitoENUM, Integer> leitos) {
         this.leitos = leitos;
     }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+    
+    public void addProduto(Produto produto){
+        this.produtos.add(produto);
+    }
+    
 }
