@@ -104,7 +104,7 @@ public class ProdutoService {
         try {
             Hospital hospital = hospitalRepository.findById(id).get();
             List<Produto> produtos = hospital.getProdutos();
-            for(Produto p : produtos){
+            /*for(Produto p : produtos){
                 if(p.getNome().toUpperCase().equals(produto.getNome().toUpperCase())) {
                     produtoRepository.deleteById(p.getId());
                 }
@@ -114,6 +114,11 @@ public class ProdutoService {
                     .collect(Collectors.toList());
             hospital.setProdutos(produtos);
             hospitalRepository.save(hospital);
+           // produtoRepository.delete(produto);*/
+            //LEO
+        produtos.removeIf(p->p.getNome().toUpperCase().equals(produto.getNome().toUpperCase()) );
+         hospitalRepository.save(hospital);
+         produtoRepository.deleteById(produto.getId());
             return true;
         } catch (Exception ex) {
 

@@ -1,9 +1,11 @@
 package gestao.models.hospital;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import gestao.models.Produto.Produto;
 import gestao.models.banco_de_sangue.BancoDeSangueENUM;
 import gestao.models.leito.TipoLeitoENUM;
+import java.util.ArrayList;
 
 
 import org.hibernate.validator.constraints.Range;
@@ -12,6 +14,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Entity
 public class Hospital {
@@ -58,6 +61,7 @@ public class Hospital {
     @NotNull(message = "A longitude não deve ser nula e deve ser um número real.")
     private Double longitude;
 
+    @JsonIgnore
     @ElementCollection
     private Map<BancoDeSangueENUM, Integer> bancoDeSangue;
 
@@ -65,7 +69,8 @@ public class Hospital {
     @ElementCollection
     private Map<TipoLeitoENUM, Integer> leitos;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
     List<Produto> produtos;
 
 
@@ -188,4 +193,26 @@ public class Hospital {
     public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
     }
+    
+    public void addProduto(String nome, Integer quantidade){
+        if(this.produtos == null){
+            this.produtos = new ArrayList<>();
+        }
+        Optional<Produto> pOpt =  this.produtos.stream().filter(p-> p.getNome().equals(nome)).findFirst();
+        pOpt.get().incrementaQuantidade(quantidade);  
+    }
+    
+    public void decrementaProduto(String nome, Integer quantidade){
+        if(this.produtos != null){
+            Optional<Produto> pOpt =  this.produtos.stream().filter(p-> p.getNome().equals(nome)).findFirst();
+            pOpt.get().decrementaQuantidade(quantidade); 
+        }
+    }
+    
+    public boolean hasEstoque(String nome, Integer quantidade){
+        Optional<Produto> pOpt =  this.produtos.stream().filter(p-> p.getNome().equals(nome)&& p.getQuantidade()-quantidade>=4).findFirst();
+        return pOpt.isPresent();
+    }
+    
+    
 }

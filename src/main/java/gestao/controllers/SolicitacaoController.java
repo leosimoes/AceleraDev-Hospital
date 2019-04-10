@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import com.google.gson.Gson;
 import gestao.models.banco_de_sangue.BancoDeSangueENUM;
 import gestao.services.BancoDeSangueSolicitacaoService;
+import gestao.services.ProdutoSolicitacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,9 @@ public class SolicitacaoController {
 
     @Autowired
     BancoDeSangueSolicitacaoService bancoDeSangueSolicitacaoService;
+    
+    @Autowired
+    ProdutoSolicitacaoService produtoSolicitacaoService;
 
     @GetMapping("/hospitais/{id}/bancodesangue/{tipo}/{quantidade}")
     @ApiOperation(value="Solicita um ativo de outro hospital.")
@@ -31,5 +35,12 @@ public class SolicitacaoController {
        return ResponseEntity.notFound().build();
     }
 
-
+    @GetMapping("/hospitais/{id}/produto/{nome}/{quantidade}")
+    @ApiOperation(value="Solicita um produto de outro hospital.")
+    public ResponseEntity<String> solicitarProduto(@PathVariable(value = "id") Long id, @PathVariable(value = "nome") String nome, @PathVariable(value = "quantidade") Integer quantidade) {
+        if(produtoSolicitacaoService.solicitarProduto(id, nome, quantidade)) {
+            return new ResponseEntity<String >(gson.toJson("Transferência realizada"), HttpStatus.OK);
+        }
+       return ResponseEntity.notFound().build();
+    }
 }
