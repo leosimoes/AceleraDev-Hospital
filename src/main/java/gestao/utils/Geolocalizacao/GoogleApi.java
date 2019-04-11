@@ -1,8 +1,7 @@
 package gestao.utils.Geolocalizacao;
 
-import com.google.gson.JsonObject;
 import gestao.exceptions.CoordenadaNaoEncontradaException;
-import gestao.models.Endereco;
+import gestao.models.hospital.Endereco;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,13 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.json.JSONArray;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class GoogleApi implements InterfaceGeolocalizacaoAPI {
 
-    private final String URL= "https://maps.googleapis.com/maps/api/geocode/json";
-    private final String TOKEN = "AIzaSyDKbiuvRBa1McusIOiXtx9hp6de-9q6xIA";
+    private static final String URL= "https://maps.googleapis.com/maps/api/geocode/json";
+    private static final String TOKEN = "AIzaSyDKbiuvRBa1McusIOiXtx9hp6de-9q6xIA";
 
     @Override
     public Coordenadas buscarCoordenadaDoEndereco(Endereco endereco) {
@@ -52,7 +48,6 @@ public class GoogleApi implements InterfaceGeolocalizacaoAPI {
 
 
     }
-
 
     private String formatURIGoogle(String uri) {
         return uri.replace(" ", "+");

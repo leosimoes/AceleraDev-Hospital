@@ -1,7 +1,6 @@
 package gestao.models.hospital;
 
 
-import gestao.models.Endereco;
 import gestao.models.Produto.Produto;
 import gestao.models.banco_de_sangue.BancoDeSangueENUM;
 import gestao.models.leito.TipoLeitoENUM;

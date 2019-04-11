@@ -39,4 +39,9 @@ public class Coordenadas {
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
+
+    public Double distancia(Coordenadas coordenadas) {
+        return DistanciaEntreCoordenadas.distancia(this, coordenadas);
+    }
+
 }
