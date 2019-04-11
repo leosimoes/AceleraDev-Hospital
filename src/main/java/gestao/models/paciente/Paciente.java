@@ -5,6 +5,7 @@ import gestao.models.hospital.Hospital;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -19,8 +20,9 @@ public class Paciente {
     private long id;
     @CPF
     //@UniqueElements
+    @NotBlank
     private String cpf;
-    @NotNull
+    @NotBlank
     private String nome;
     @NotNull
     private LocalDate dataNascimento;

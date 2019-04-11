@@ -1,4 +1,4 @@
-package gestao.respositories;
+package gestao.repositories;
 
 import gestao.models.Produto.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;

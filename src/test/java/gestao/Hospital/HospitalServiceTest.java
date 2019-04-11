@@ -1,23 +1,13 @@
 package gestao.Hospital;
 
-import gestao.models.hospital.Hospital;
-import gestao.respositories.hospital.HospitalRepository;
+import gestao.repositories.hospital.HospitalRepository;
 import gestao.services.HospitalService;
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.when;
 
 class HospitalServiceTest {
 

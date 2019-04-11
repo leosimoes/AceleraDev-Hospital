@@ -3,13 +3,10 @@ package gestao.services;
 
 import gestao.models.banco_de_sangue.BancoDeSangueFactory;
 import gestao.models.hospital.HospitalDTO;
-import gestao.models.leito.LeitoFactory;
 
 import gestao.exceptions.HospitalNotFoundException;
 import gestao.models.hospital.Hospital;
-import gestao.respositories.hospital.HospitalRepository;
-import gestao.models.Endereco;
-import gestao.utils.Geolocalizacao.GoogleApi;
+import gestao.repositories.hospital.HospitalRepository;
 import gestao.utils.Geolocalizacao.Ponto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

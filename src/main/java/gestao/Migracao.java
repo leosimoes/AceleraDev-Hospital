@@ -1,6 +1,6 @@
 /*package gestao;
 
-import gestao.respositories.hospital.HospitalRepository;
+import gestao.repositories.hospital.HospitalRepository;
 import gestao.controllers.HospitalController;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;

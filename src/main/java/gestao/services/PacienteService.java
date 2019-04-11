@@ -5,7 +5,7 @@ import gestao.models.paciente.HistoricoPaciente;
 //import gestao.models.paciente.Paciente.Paciente;
 import gestao.models.paciente.Paciente;
 import gestao.exceptions.paciente.PacienteNaoEncontradoException;
-import gestao.respositories.PacienteRepository;
+import gestao.repositories.PacienteRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 

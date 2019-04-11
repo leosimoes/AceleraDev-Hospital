@@ -3,7 +3,7 @@ package gestao.services;
 
 import gestao.models.banco_de_sangue.BancoDeSangueENUM;
 import gestao.models.hospital.Hospital;
-import gestao.respositories.hospital.HospitalRepository;
+import gestao.repositories.hospital.HospitalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
