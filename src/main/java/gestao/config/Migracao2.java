@@ -1,4 +1,4 @@
-package gestao;
+package gestao.config;
 
 import gestao.models.Produto.Produto;
 import gestao.models.hospital.Endereco;
