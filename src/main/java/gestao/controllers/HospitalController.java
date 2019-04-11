@@ -69,6 +69,7 @@ public class HospitalController {
 
 
     @GetMapping(value = "/encaminhamento")
+    @ApiOperation(value="Buscar Hospital próximo por coordenada")
     public ResponseEntity<List<Hospital>> findNearHospital(@Valid Coordenadas geocolocalizacao) {
         List<Hospital> hospitais = service.procurarPorHospitaisProximos(geocolocalizacao);
         return ResponseEntity.ok().body(hospitais);

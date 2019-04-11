@@ -69,7 +69,11 @@ public class HospitalService {
     public List<Hospital> procurarPorHospitaisProximos(Coordenadas geocolocalizacao) {
          return  this.repository.findAll()
                   .stream()
-                  .sorted(Comparator.comparing( x -> x.getEndereco().getCoordenadas().distancia(geocolocalizacao)))
-                 .limit(10).collect(Collectors.toList());
+                  .distinct()
+                  .sorted(
+                          Comparator.comparingDouble(x -> x.getEndereco().getCoordenadas().distancia(geocolocalizacao))
+                  )
+                 .limit(10)
+                 .collect(Collectors.toList());
     }
 }
