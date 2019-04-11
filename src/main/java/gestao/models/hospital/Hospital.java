@@ -8,8 +8,10 @@ import gestao.models.leito.TipoLeitoENUM;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Entity
 public class Hospital {
@@ -24,8 +26,6 @@ public class Hospital {
     @OneToOne(fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
     private Endereco endereco;
 
-    private Double latitude;
-    private Double longitude;
 
     @ElementCollection
     private Map<BancoDeSangueENUM, Integer> bancoDeSangue;
@@ -90,22 +90,6 @@ public class Hospital {
         this.produtos = produtos;
     }
 
-    public Double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
-    }
-
-    public Double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
-    }
-
     public static Hospital criarComDTO(HospitalDTO dto) {
         Hospital hospital = new Hospital();
         hospital.nome = dto.getNome();
@@ -118,5 +102,25 @@ public class Hospital {
         this.nome = dto.getNome();
         this.endereco = dto.getEndereco();
         this.leitos = dto.getLeitos();
+    }
+
+    public void addProduto(String nome, Integer quantidade){
+        if(this.produtos == null){
+            this.produtos = new ArrayList<>();
+        }
+        Optional<Produto> pOpt =  this.produtos.stream().filter(p-> p.getNome().equals(nome)).findFirst();
+        pOpt.get().incrementaQuantidade(quantidade);
+    }
+
+    public void decrementaProduto(String nome, Integer quantidade){
+        if(this.produtos != null){
+            Optional<Produto> pOpt =  this.produtos.stream().filter(p-> p.getNome().equals(nome)).findFirst();
+            pOpt.get().decrementaQuantidade(quantidade);
+        }
+    }
+
+    public boolean hasEstoque(String nome, Integer quantidade){
+        Optional<Produto> pOpt =  this.produtos.stream().filter(p-> p.getNome().equals(nome)&& p.getQuantidade()-quantidade>=4).findFirst();
+        return pOpt.isPresent();
     }
 }

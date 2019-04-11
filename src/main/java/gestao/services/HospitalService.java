@@ -46,8 +46,6 @@ public class HospitalService {
 
         endereco.setCoordenadas(coordenadas);
         hospital.setEndereco(endereco);
-        hospital.setLatitude(endereco.getLatitude());
-        hospital.setLongitude(endereco.getLongitude());
 
         return this.repository.save(hospital);
     }
@@ -71,10 +69,11 @@ public class HospitalService {
         this.repository.deleteById(id);
     }
 
-    public List<Hospital> procurarPorHospitaisProximos(Coordenadas geocolocalizacao) {
-         return  this.repository.findAll()
-                  .stream()
-                  .sorted(Comparator.comparing( x -> x.getEndereco().getCoordenadas().distancia(geocolocalizacao)))
-                 .limit(10).collect(Collectors.toList());
+    public List<Hospital> procurarPorHospitaisProximos(Coordenadas geolocalizacao) {
+        List<Hospital> hospitaisProximos = repository.findAll()
+                .stream()
+                .sorted(Comparator.comparingDouble(x -> x.getEndereco().getCoordenadas().distancia(geolocalizacao)))
+                .limit(10).collect(Collectors.toList());
+        return hospitaisProximos;
     }
 }

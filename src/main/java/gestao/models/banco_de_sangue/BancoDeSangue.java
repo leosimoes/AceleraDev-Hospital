@@ -1,5 +1,11 @@
 package gestao.models.banco_de_sangue;
 
+/**
+ *
+ * @author Jardel Casteluber
+ *
+ */
+
 public class BancoDeSangue {
 
     private BancoDeSangueENUM tipo;

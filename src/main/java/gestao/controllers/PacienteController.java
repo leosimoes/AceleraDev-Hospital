@@ -14,8 +14,12 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
-//import gestao.models.paciente.Paciente.HistoricoPaciente;
-//import gestao.models.paciente.Paciente.Paciente;
+/**
+ * Classe responsável pela implementação dos controladores relacionados ao paciente.
+ *
+ * @author Jardel Casteluber
+ *
+ */
 
 @RestController
 @RequestMapping(value = "/api/v1/pacientes")

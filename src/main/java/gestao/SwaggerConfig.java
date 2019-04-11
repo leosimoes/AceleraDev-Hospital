@@ -32,11 +32,11 @@ public class SwaggerConfig {
 
         ApiInfo apiInfo = new ApiInfo(
                 "Hospitais API REST",
-                "API REST de cadastro de hospitais.",
+                "API REST: Gestão de hospitais.",
                 "1.0",
                 "Terms of Service",
-                new Contact("Jardel Casteluber, José Espinheira, Leonardo Simões, Michael Ulguim","http://",
-                        "joseespinheira@gmail.com"),
+                new Contact("Jardel Casteluber, José Espinheira, Leonardo Simões, Michael Ulguim","http://codenation.dev",
+                        "contato@codenation.dev"),
                 "Apache License Version 2.0",
                 "https://www.apache.org/licesen.html", new ArrayList<VendorExtension>()
         );

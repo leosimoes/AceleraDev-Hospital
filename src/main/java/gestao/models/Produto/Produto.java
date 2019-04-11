@@ -41,7 +41,7 @@ public class Produto {
     }
     
     public void decrementaQuantidade(Integer quantidade) {
-        this.quantidade += quantidade;
+        this.quantidade -= quantidade;
     }
 
     public Long getId() {

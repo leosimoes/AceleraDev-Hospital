@@ -10,6 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Classe responsável pela implementação dos serviços relacionados ao banco de sangue.
+ *
+ * @author Jardel Casteluber
+ *
+ */
 @Service
 public class BancoDeSangueService {
     @Autowired

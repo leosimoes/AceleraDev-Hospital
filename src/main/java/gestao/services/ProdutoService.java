@@ -1,5 +1,11 @@
 package gestao.services;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+import javax.validation.Valid;
+
 import gestao.exceptions.Produto.ProdutoNaoEncontradoException;
 import gestao.models.Produto.Produto;
 import gestao.models.hospital.Hospital;
@@ -9,11 +15,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
-import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
+/**
+ * Classe responsável pela implementação dos serviços relacionados a solicitações de produtos.
+ *
+ * @author Jardel Casteluber e Leonardo Simões
+ */
 
 @Service
 public class ProdutoService {
@@ -104,16 +110,9 @@ public class ProdutoService {
         try {
             Hospital hospital = hospitalRepository.findById(id).get();
             List<Produto> produtos = hospital.getProdutos();
-            for(Produto p : produtos){
-                if(p.getNome().toUpperCase().equals(produto.getNome().toUpperCase())) {
-                    produtoRepository.deleteById(p.getId());
-                }
-            }
-            produtos = produtos.stream()
-                    .filter(x -> !x.getNome().toUpperCase().equals(produto.getNome().toUpperCase()))
-                    .collect(Collectors.toList());
-            hospital.setProdutos(produtos);
+            produtos.removeIf(p->p.getNome().toUpperCase().equals(produto.getNome().toUpperCase()) );
             hospitalRepository.save(hospital);
+            produtoRepository.deleteById(produto.getId());
             return true;
         } catch (Exception ex) {
 

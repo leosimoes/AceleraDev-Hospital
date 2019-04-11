@@ -22,7 +22,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-//import gestao.models.hospital.Leitos;
+/**
+ * Classe responsável pela implementação dos serviços relacionados ao historico do paciente.
+ *
+ * @author Jardel Casteluber
+ *
+ */
 
 @Service
 public class HistoricoPacienteService {
