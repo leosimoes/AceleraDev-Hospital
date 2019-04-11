@@ -1,4 +1,4 @@
-package gestao.models;
+package gestao.models.hospital;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import gestao.utils.Geolocalizacao.Coordenadas;

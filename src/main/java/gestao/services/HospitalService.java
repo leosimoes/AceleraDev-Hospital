@@ -2,7 +2,7 @@ package gestao.services;
 
 
 import gestao.exceptions.HospitalNaoEncontradoException;
-import gestao.models.Endereco;
+import gestao.models.hospital.Endereco;
 import gestao.models.banco_de_sangue.BancoDeSangueFactory;
 import gestao.models.hospital.HospitalDTO;
 import gestao.exceptions.HospitalNaoEncontradoException;
@@ -12,9 +12,15 @@ import gestao.utils.Geolocalizacao.Coordenadas;
 import gestao.utils.Geolocalizacao.GoogleApi;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import springfox.documentation.annotations.Cacheable;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class HospitalService {
@@ -66,6 +72,9 @@ public class HospitalService {
     }
 
     public List<Hospital> procurarPorHospitaisProximos(Coordenadas geocolocalizacao) {
-        return this.repository.buscarMaisProximosPorGeo(geocolocalizacao);
+         return  this.repository.findAll()
+                  .stream()
+                  .sorted(Comparator.comparing( x -> x.getEndereco().getCoordenadas().distancia(geocolocalizacao)))
+                 .limit(10).collect(Collectors.toList());
     }
 }
