@@ -35,7 +35,9 @@ public class HospitalService {
         hospital.setBancoDeSangue(BancoDeSangueFactory.createDefault());
 
         Endereco endereco = hospital.getEndereco();
-        Coordenadas coordenadas = new GoogleApi().buscarPontoPorEndereco(endereco);
+
+        Coordenadas coordenadas = new GoogleApi().buscarCoordenadaDoEndereco(endereco);
+
         endereco.setCoordenadas(coordenadas);
         hospital.setEndereco(endereco);
 
