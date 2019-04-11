@@ -43,6 +43,22 @@ public class Hospital {
         return id;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -72,7 +88,7 @@ public class Hospital {
         this.produtos = produtos;
     }
 
-    public static Hospital criarViaDTO(HospitalDTO dto) {
+    public static Hospital criarComDTO(HospitalDTO dto) {
         Hospital hospital = new Hospital();
         hospital.nome = dto.getNome();
         hospital.endereco = dto.getEndereco();
@@ -80,7 +96,7 @@ public class Hospital {
         return hospital;
     }
 
-    public void atualizarViaDTO(HospitalDTO dto) {
+    public void alterarComDTO(HospitalDTO dto) {
         this.nome = dto.getNome();
         this.endereco = dto.getEndereco();
         this.leitos = dto.getLeitos();

@@ -1,7 +1,7 @@
 package gestao.repositories.hospital;
 
 import gestao.models.hospital.Hospital;
-import gestao.utils.Geolocalizacao.Ponto;
+import gestao.utils.Geolocalizacao.Coordenadas;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,7 +18,7 @@ public class HospitalGeoRepositoryImpl implements HospitalGeoRepository {
     private EntityManager entityManager;
 
     @Override
-    public List<Hospital> buscarMaisProximosPorGeo(Ponto ponto) {
+    public List<Hospital> buscarMaisProximosPorGeo(Coordenadas coordenadas) {
         String sql = "SELECT hospital.*, " +
                 "(6371 * acos(" +
                 "cos( radians( :lat ) ) " +
@@ -29,8 +29,8 @@ public class HospitalGeoRepositoryImpl implements HospitalGeoRepository {
                 " FROM hospital ORDER BY distancia ASC LIMIT 5";
 
         Query query = entityManager.createNativeQuery(sql, Hospital.class);
-        query.setParameter("lon", ponto.getLongitude());
-        query.setParameter("lat", ponto.getLatitude());
+        query.setParameter("lon", coordenadas.getLongitude());
+        query.setParameter("lat", coordenadas.getLatitude());
 
         return query.getResultList();
 

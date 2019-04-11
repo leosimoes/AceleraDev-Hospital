@@ -3,7 +3,7 @@ package gestao.controllers;
 import gestao.models.hospital.Hospital;
 import gestao.models.hospital.HospitalDTO;
 import gestao.services.HospitalService;
-import gestao.utils.Geolocalizacao.Ponto;
+import gestao.utils.Geolocalizacao.Coordenadas;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/hospitais")
@@ -70,7 +69,7 @@ public class HospitalController {
 
 
     @GetMapping(value = "/encaminhamento")
-    public ResponseEntity<List<Hospital>> findNearHospital(@Valid Ponto geocolocalizacao) {
+    public ResponseEntity<List<Hospital>> findNearHospital(@Valid Coordenadas geocolocalizacao) {
         List<Hospital> hospitais = service.procurarPorHospitaisProximos(geocolocalizacao);
         return ResponseEntity.ok().body(hospitais);
     }

@@ -2,15 +2,14 @@ package gestao.services;
 
 
 import gestao.exceptions.HospitalNaoEncontradoException;
+import gestao.models.Endereco;
 import gestao.models.banco_de_sangue.BancoDeSangueFactory;
-
 import gestao.models.hospital.HospitalDTO;
-
 import gestao.exceptions.HospitalNaoEncontradoException;
 import gestao.models.hospital.Hospital;
 import gestao.repositories.hospital.HospitalRepository;
-
-import gestao.utils.Geolocalizacao.Ponto;
+import gestao.utils.Geolocalizacao.Coordenadas;
+import gestao.utils.Geolocalizacao.GoogleApi;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -32,8 +31,13 @@ public class HospitalService {
 
     public Hospital create(HospitalDTO hospitalDTO) {
 
-        Hospital hospital = Hospital.criarViaDTO(hospitalDTO);
+        Hospital hospital = Hospital.criarComDTO(hospitalDTO);
         hospital.setBancoDeSangue(BancoDeSangueFactory.createDefault());
+
+//        Endereco endereco = hospital.getEndereco();
+//        Coordenadas coordenadas = new GoogleApi().buscarPontoPorEndereco(endereco);
+//        endereco.setCoordenadas(coordenadas);
+//        hospital.setEndereco(endereco);
 
         return this.repository.save(hospital);
     }
@@ -45,7 +49,7 @@ public class HospitalService {
 
     public void update(Long id, HospitalDTO hospitalDTO) {
         this.repository.findById(id).map(x -> {
-            x.atualizarViaDTO(hospitalDTO);
+            x.alterarComDTO(hospitalDTO);
             return this.repository.save(x);
         }).orElseThrow(() -> new HospitalNaoEncontradoException());
     }
@@ -57,7 +61,7 @@ public class HospitalService {
         this.repository.deleteById(id);
     }
 
-    public List<Hospital> procurarPorHospitaisProximos(Ponto geocolocalizacao) {
+    public List<Hospital> procurarPorHospitaisProximos(Coordenadas geocolocalizacao) {
         return this.repository.buscarMaisProximosPorGeo(geocolocalizacao);
     }
 }
