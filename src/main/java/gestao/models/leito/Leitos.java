@@ -1,9 +1,10 @@
 package gestao.models.leito;
 
-import gestao.models.leito.TipoLeitoENUM;
+import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
 
 public class Leitos {
 
+    @JsonEnumDefaultValue
     private TipoLeitoENUM tipo;
 
     private Integer quantidade;

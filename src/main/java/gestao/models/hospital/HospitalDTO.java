@@ -1,7 +1,6 @@
 package gestao.models.hospital;
 
 import gestao.models.Endereco;
-import gestao.models.leito.Leitos;
 import gestao.models.leito.TipoLeitoENUM;
 
 import javax.persistence.ElementCollection;

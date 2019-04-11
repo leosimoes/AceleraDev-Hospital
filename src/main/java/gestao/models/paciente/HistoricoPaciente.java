@@ -1,7 +1,7 @@
 package gestao.models.paciente;
 
-import gestao.models.leito.TipoLeitoENUM;
 import gestao.models.hospital.Hospital;
+import gestao.models.leito.TipoLeitoENUM;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

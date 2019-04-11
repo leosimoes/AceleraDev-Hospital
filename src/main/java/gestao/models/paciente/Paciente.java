@@ -1,7 +1,6 @@
 package gestao.models.paciente;
 
 
-import gestao.models.hospital.Hospital;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;

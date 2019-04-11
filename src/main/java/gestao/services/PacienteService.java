@@ -1,17 +1,20 @@
 package gestao.services;
 
+import gestao.exceptions.paciente.PacienteNaoEncontradoException;
 import gestao.models.paciente.HistoricoPaciente;
-//import gestao.models.paciente.Paciente.HistoricoPaciente;
-//import gestao.models.paciente.Paciente.Paciente;
 import gestao.models.paciente.Paciente;
 import gestao.exceptions.paciente.PacienteNaoEncontradoException;
 import gestao.repositories.PacienteRepository;
+
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Pattern;
+
+//import gestao.models.paciente.Paciente.HistoricoPaciente;
+//import gestao.models.paciente.Paciente.Paciente;
 
 @Service
 public class PacienteService {

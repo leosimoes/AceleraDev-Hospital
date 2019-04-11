@@ -1,10 +1,9 @@
 package gestao.controllers;
 
-import io.swagger.annotations.ApiOperation;
-
 import com.google.gson.Gson;
 import gestao.models.banco_de_sangue.BancoDeSangueENUM;
 import gestao.services.BancoDeSangueSolicitacaoService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

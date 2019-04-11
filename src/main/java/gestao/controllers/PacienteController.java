@@ -1,12 +1,9 @@
 package gestao.controllers;
 
+import gestao.models.paciente.HistoricoPaciente;
 import gestao.models.paciente.Paciente;
 import gestao.services.PacienteService;
 import io.swagger.annotations.ApiOperation;
-
-import gestao.models.paciente.HistoricoPaciente;
-//import gestao.models.paciente.Paciente.HistoricoPaciente;
-//import gestao.models.paciente.Paciente.Paciente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+
+//import gestao.models.paciente.Paciente.HistoricoPaciente;
+//import gestao.models.paciente.Paciente.Paciente;
 
 @RestController
 @RequestMapping(value = "/api/v1/pacientes")

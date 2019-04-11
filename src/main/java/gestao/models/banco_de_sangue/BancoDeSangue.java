@@ -1,7 +1,5 @@
 package gestao.models.banco_de_sangue;
 
-import gestao.models.banco_de_sangue.BancoDeSangueENUM;
-
 public class BancoDeSangue {
 
     private BancoDeSangueENUM tipo;

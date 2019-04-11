@@ -1,7 +1,9 @@
 package gestao.exceptions.Produto;
 
 
-public class ProdutoNaoEncontradoException extends RuntimeException {
+import gestao.exceptions.bases.RecursoNaoEncontradoException;
+
+public class ProdutoNaoEncontradoException extends RecursoNaoEncontradoException {
 
     public ProdutoNaoEncontradoException() {
         super("Produto não encontrado");

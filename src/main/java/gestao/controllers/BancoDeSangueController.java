@@ -1,10 +1,9 @@
 package gestao.controllers;
 
 import gestao.models.banco_de_sangue.BancoDeSangue;
+import gestao.models.hospital.Hospital;
 import gestao.services.BancoDeSangueService;
 import io.swagger.annotations.ApiOperation;
-
-import gestao.models.hospital.Hospital;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,18 +1,14 @@
 package gestao.controllers;
 
+import gestao.models.hospital.Hospital;
 import gestao.models.hospital.HospitalDTO;
 import gestao.services.HospitalService;
-import gestao.models.hospital.Hospital;
 import gestao.utils.Geolocalizacao.Ponto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -38,18 +34,16 @@ public class HospitalController {
     @GetMapping(params = {"page", "size"})
     @ApiOperation(value="Retorna uma lista de Hospitais")
     public ResponseEntity<List<Hospital>> index(@RequestParam("page") int page,
-                                                @RequestParam("size") int size) {
+                                                @RequestParam("size") int size
+    ) {
         return ResponseEntity.ok().body(service.findAll(PageRequest.of(page, size)).getContent());
     }
 
     @GetMapping("/{id}")
     @ApiOperation(value="Retorna um Hospital")
     public ResponseEntity<Hospital> show(@PathVariable(value = "id") Long id) {
-        Optional<Hospital> hospital = this.service.find(id);
-        if (! hospital.isPresent()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok().body(hospital.get());
+        Hospital hospital = this.service.find(id);
+        return ResponseEntity.ok().body(hospital);
     }
 
     @PostMapping

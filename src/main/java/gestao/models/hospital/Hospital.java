@@ -1,16 +1,14 @@
 package gestao.models.hospital;
 
 
-import gestao.models.Produto.Produto;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import gestao.models.Endereco;
-
+import gestao.models.Produto.Produto;
 import gestao.models.banco_de_sangue.BancoDeSangueENUM;
 import gestao.models.leito.TipoLeitoENUM;
 
-
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +19,7 @@ public class Hospital {
     @Id
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "Hospital deve ter um nome")
     private String nome;
 
     @OneToOne(fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
@@ -30,6 +28,7 @@ public class Hospital {
     @ElementCollection
     private Map<BancoDeSangueENUM, Integer> bancoDeSangue;
 
+    @NotNull(message = "Precisa definir tipos e quantidade de leitos")
     @ElementCollection
     private Map<TipoLeitoENUM, Integer> leitos;
 

@@ -1,12 +1,10 @@
 package gestao.controllers;
 
-import gestao.models.leito.Leitos;
-import gestao.models.leito.TipoLeitoENUM;
+import com.google.gson.Gson;
 import gestao.models.hospital.Hospital;
+import gestao.models.leito.Leitos;
 import gestao.services.HistoricoPacienteService;
 import io.swagger.annotations.ApiOperation;
-
-import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

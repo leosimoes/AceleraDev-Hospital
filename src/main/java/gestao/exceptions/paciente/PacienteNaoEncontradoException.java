@@ -1,6 +1,8 @@
 package gestao.exceptions.paciente;
 
-public class PacienteNaoEncontradoException extends RuntimeException{
+import gestao.exceptions.bases.RecursoNaoEncontradoException;
+
+public class PacienteNaoEncontradoException extends RecursoNaoEncontradoException {
 
     public PacienteNaoEncontradoException(String msg) {
         super(msg);

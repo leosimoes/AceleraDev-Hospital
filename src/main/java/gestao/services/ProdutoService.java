@@ -1,11 +1,5 @@
 package gestao.services;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
-import javax.validation.Valid;
-
 import gestao.exceptions.Produto.ProdutoNaoEncontradoException;
 import gestao.models.Produto.Produto;
 import gestao.models.hospital.Hospital;
@@ -14,6 +8,12 @@ import gestao.repositories.hospital.HospitalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
+
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProdutoService {
