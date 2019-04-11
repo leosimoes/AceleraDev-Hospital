@@ -1,7 +1,7 @@
 package gestao.repositories.hospital;
 
 import gestao.models.hospital.Hospital;
-import gestao.utils.Geolocalizacao.Coordenadas;
+import gestao.utils.geolocalizacao.Coordenadas;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

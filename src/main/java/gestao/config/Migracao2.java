@@ -1,6 +1,6 @@
 package gestao.config;
 
-import gestao.models.Produto.Produto;
+import gestao.models.produto.Produto;
 import gestao.models.hospital.Endereco;
 import gestao.models.banco_de_sangue.BancoDeSangueENUM;
 import gestao.models.hospital.Hospital;
@@ -9,7 +9,6 @@ import gestao.models.leito.TipoLeitoENUM;
 import gestao.models.paciente.Paciente;
 import gestao.models.paciente.SexoPacienteENUM;
 import gestao.repositories.hospital.HospitalRepository;
-import gestao.controllers.HospitalController;
 import gestao.services.HospitalService;
 import gestao.services.PacienteService;
 import gestao.services.ProdutoService;

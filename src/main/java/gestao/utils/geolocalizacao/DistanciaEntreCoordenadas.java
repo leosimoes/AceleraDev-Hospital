@@ -1,4 +1,4 @@
-package gestao.utils.Geolocalizacao;
+package gestao.utils.geolocalizacao;
 
 class DistanciaEntreCoordenadas {
     public static int EARTH_RADIUS_KM = 6371;

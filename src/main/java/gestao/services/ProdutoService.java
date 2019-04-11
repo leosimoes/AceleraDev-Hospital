@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
 
-import gestao.exceptions.Produto.ProdutoNaoEncontradoException;
-import gestao.models.Produto.Produto;
+import gestao.exceptions.produto.ProdutoNaoEncontradoException;
+import gestao.models.produto.Produto;
 import gestao.models.hospital.Hospital;
 import gestao.repositories.ProdutoRepository;
 import gestao.repositories.hospital.HospitalRepository;

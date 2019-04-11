@@ -3,7 +3,7 @@ package gestao.controllers;
 import gestao.models.hospital.Hospital;
 import gestao.models.hospital.HospitalDTO;
 import gestao.services.HospitalService;
-import gestao.utils.Geolocalizacao.Coordenadas;
+import gestao.utils.geolocalizacao.Coordenadas;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package gestao.utils.Geolocalizacao;
+package gestao.utils.geolocalizacao;
 
 import gestao.models.hospital.Endereco;
 

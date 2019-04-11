@@ -1,4 +1,4 @@
-package gestao.models.Produto;
+package gestao.models.produto;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

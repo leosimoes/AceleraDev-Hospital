@@ -1,7 +1,7 @@
 package gestao.Produto;
 
 import gestao.models.hospital.Hospital;
-import gestao.models.Produto.Produto;
+import gestao.models.produto.Produto;
 import gestao.services.HospitalService;
 import java.util.List;
 import java.util.Optional;
