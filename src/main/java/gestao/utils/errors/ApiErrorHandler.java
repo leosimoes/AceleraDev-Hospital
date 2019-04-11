@@ -8,6 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -42,6 +43,11 @@ public class ApiErrorHandler extends ResponseEntityExceptionHandler {
 	protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 		List<ApiSubError> subErros =  Arrays.asList(new ApiValidationError(ex.getRootCause().getLocalizedMessage(), ex.getMostSpecificCause().getLocalizedMessage()));
 		return buildResponseEntity(new ApiError(HttpStatus.BAD_REQUEST, "Formato JSON inválido", subErros));
+	}
+
+	@Override
+	protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+		return buildResponseEntity(new ApiError(status, ex.getLocalizedMessage()));
 	}
 
 	@Override

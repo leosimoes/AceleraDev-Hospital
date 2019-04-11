@@ -33,10 +33,10 @@ public class HospitalService {
         Hospital hospital = Hospital.criarComDTO(hospitalDTO);
         hospital.setBancoDeSangue(BancoDeSangueFactory.createDefault());
 
-//        Endereco endereco = hospital.getEndereco();
-//        Coordenadas coordenadas = new GoogleApi().buscarPontoPorEndereco(endereco);
-//        endereco.setCoordenadas(coordenadas);
-//        hospital.setEndereco(endereco);
+        Endereco endereco = hospital.getEndereco();
+        Coordenadas coordenadas = new GoogleApi().buscarCoordenadaDoEndereco(endereco);
+        endereco.setCoordenadas(coordenadas);
+        hospital.setEndereco(endereco);
 
         return this.repository.save(hospital);
     }

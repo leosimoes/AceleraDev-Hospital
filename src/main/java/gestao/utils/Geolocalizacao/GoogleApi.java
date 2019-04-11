@@ -1,13 +1,16 @@
 package gestao.utils.Geolocalizacao;
 
+import com.google.gson.JsonObject;
+import gestao.exceptions.CoordenadaNaoEncontradaException;
 import gestao.models.Endereco;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-
+import org.json.JSONArray;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class GoogleApi implements InterfaceGeolocalizacaoAPI {
@@ -16,58 +19,43 @@ public class GoogleApi implements InterfaceGeolocalizacaoAPI {
     private final String TOKEN = "AIzaSyDKbiuvRBa1McusIOiXtx9hp6de-9q6xIA";
 
     @Override
-    public Coordenadas buscarPontoPorEndereco(Endereco endereco) {
+    public Coordenadas buscarCoordenadaDoEndereco(Endereco endereco) {
 
-
-        GoogleResults response = this.send(endereco.formattedAddress());
-        GoogleResults tteste = response;
+        try {
+            JSONObject response = this.send(endereco.formattedAddress());
             return this.coordenadasAdapter(response);
-
+        } catch (JSONException e) {
+            throw new CoordenadaNaoEncontradaException();
+        } catch (Exception e) {
+            throw new CoordenadaNaoEncontradaException();
+        }
     }
-    GoogleResults send(String endereco) {
-           Map<String, String> parameters = new HashMap<>();
-        parameters.put("address", this.formatURIGoogle(endereco));
-        parameters.put("key", TOKEN);
+
+    private Coordenadas coordenadasAdapter(JSONObject response) throws JSONException {
+        JSONArray results = response.getJSONArray("results");
+
+        JSONObject location = results.getJSONObject(0)
+                .getJSONObject("geometry")
+                .getJSONObject("location");
+
+        Double lat = Double.parseDouble(location.getString("lat"));
+        Double lng = Double.parseDouble(location.getString("lng"));
+        return new Coordenadas(lng, lat);
+    }
+
+    private JSONObject send(String endereco) throws JSONException {
+        String url = URL + "?address="+this.formatURIGoogle(endereco)+"&key="+TOKEN;
         RestTemplate restTemplate = new RestTemplate();
-        return  restTemplate.getForObject(URL, GoogleResults.class, parameters);
-    }
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class);
 
-//    private ResponseGoogle send(String endereco) {
-//        Map<String, String> parameters = new HashMap<>();
-//        parameters.put("address", this.formatURIGoogle(endereco));
-//        parameters.put("key", TOKEN);
-//        RestTemplate restTemplate = new RestTemplate();
-//        return  restTemplate.getForObject(URL, Map.class, parameters);
-//    }
+        return  new JSONObject(responseEntity.getBody());
+
+
+    }
 
 
     private String formatURIGoogle(String uri) {
         return uri.replace(" ", "+");
     }
-
-    private Coordenadas coordenadasAdapter(GoogleResults google) {
-        return new Coordenadas(1D,2D);
-    }
-
-    class GoogleResults {
-        List<Results> results;
-    }
-    class Results {
-        public List<Address_component> address_components;
-        public String formatted_address;
-        public Geometry geometry;
-    }
-
-    class Address_component {
-         String long_name;
-         String short_name;
-         List<String> types;
-    }
-
-    class Geometry {
-        Coordenadas location;
-
-    }
-
 
 }
