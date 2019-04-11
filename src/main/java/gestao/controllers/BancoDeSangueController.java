@@ -8,6 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Classe responsável pela implementação dos controladores relacionados ao banco de sangue.
+ *
+ * @author Jardel Casteluber
+ *
+ */
+
 @RestController
 @RequestMapping("/api/v1/hospitais/{id}/bancodesangue")
 public class BancoDeSangueController {

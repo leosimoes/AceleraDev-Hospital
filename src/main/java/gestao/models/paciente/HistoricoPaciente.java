@@ -9,6 +9,12 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "historico_paciente")
+
+/**
+ *
+ * @author Jardel Casteluber
+ *
+ */
 public class HistoricoPaciente {
 
     @Id

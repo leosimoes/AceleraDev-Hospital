@@ -10,6 +10,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Classe responsável pela implementação dos controladores relacionados ao histórico do paciente.
+ *
+ * @author Jardel Casteluber
+ *
+ */
+
 @RestController
 @RequestMapping(value = "/api/v1/pacientes")
 @CrossOrigin(origins = "*")

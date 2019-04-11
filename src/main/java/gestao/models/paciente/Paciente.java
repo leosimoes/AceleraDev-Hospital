@@ -1,9 +1,8 @@
 package gestao.models.paciente;
 
-
 import org.hibernate.validator.constraints.br.CPF;
-
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,15 +10,22 @@ import java.util.List;
 
 @Entity
 @Table(name= "paciente")
+
+/**
+ *
+ * @author Jardel Casteluber
+ *
+ */
 public class Paciente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @CPF
-    //@UniqueElements
+
+    @CPF(message = "O CPF deve ser válido")
+    @NotBlank
     private String cpf;
-    @NotNull
+    @NotBlank
     private String nome;
     @NotNull
     private LocalDate dataNascimento;

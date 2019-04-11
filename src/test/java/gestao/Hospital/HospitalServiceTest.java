@@ -1,11 +1,15 @@
 package gestao.Hospital;
 
-import gestao.respositories.hospital.HospitalRepository;
+
+import gestao.repositories.hospital.HospitalRepository;
 import gestao.services.HospitalService;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+
+import static org.mockito.ArgumentMatchers.any;
 
 class HospitalServiceTest {
 

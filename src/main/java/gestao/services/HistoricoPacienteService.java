@@ -8,10 +8,13 @@ import gestao.models.hospital.Hospital;
 import gestao.models.leito.Leitos;
 import gestao.models.leito.TipoLeitoENUM;
 import gestao.models.paciente.HistoricoPaciente;
+
+import gestao.repositories.HistoricoPacienteRepository;
 import gestao.models.paciente.Paciente;
-import gestao.respositories.HistoricoPacienteRepository;
-import gestao.respositories.PacienteRepository;
-import gestao.respositories.hospital.HospitalRepository;
+import gestao.repositories.PacienteRepository;
+import gestao.exceptions.paciente.PacienteSemCheckoutException;
+import gestao.repositories.hospital.HospitalRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -19,7 +22,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-//import gestao.models.hospital.Leitos;
+/**
+ * Classe responsável pela implementação dos serviços relacionados ao historico do paciente.
+ *
+ * @author Jardel Casteluber
+ *
+ */
 
 @Service
 public class HistoricoPacienteService {

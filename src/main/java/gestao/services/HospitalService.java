@@ -4,9 +4,10 @@ package gestao.services;
 import gestao.exceptions.HospitalNaoEncontradoException;
 import gestao.models.hospital.Endereco;
 import gestao.models.banco_de_sangue.BancoDeSangueFactory;
-import gestao.models.hospital.Hospital;
 import gestao.models.hospital.HospitalDTO;
-import gestao.respositories.hospital.HospitalRepository;
+import gestao.exceptions.HospitalNaoEncontradoException;
+import gestao.models.hospital.Hospital;
+import gestao.repositories.hospital.HospitalRepository;
 import gestao.utils.Geolocalizacao.Coordenadas;
 import gestao.utils.Geolocalizacao.GoogleApi;
 import org.springframework.data.domain.Page;
@@ -40,7 +41,9 @@ public class HospitalService {
         hospital.setBancoDeSangue(BancoDeSangueFactory.createDefault());
 
         Endereco endereco = hospital.getEndereco();
+
         Coordenadas coordenadas = new GoogleApi().buscarCoordenadaDoEndereco(endereco);
+
         endereco.setCoordenadas(coordenadas);
         hospital.setEndereco(endereco);
 

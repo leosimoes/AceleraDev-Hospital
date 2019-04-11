@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 @JsonRootName("location")
 public class Coordenadas {
 
-    @JsonProperty("lat")
+    @JsonProperty("latitude")
     @Range(min = -90, max = 90,  message = "A longitude deve estar contida no intervalo [-90, 90]")
     @NotNull(message = "A latitude não deve ser nula e deve ser um número real.")
     private Double latitude;
@@ -24,16 +24,16 @@ public class Coordenadas {
     }
 
 
-    public Double getLongitude() {
-        return longitude;
-    }
-
     public Double getLatitude() {
         return latitude;
     }
 
     public void setLatitude(Double latitude) {
         this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
     }
 
     public void setLongitude(Double longitude) {

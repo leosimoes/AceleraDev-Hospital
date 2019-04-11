@@ -1,4 +1,4 @@
-package gestao.respositories.hospital;
+package gestao.repositories.hospital;
 
 import gestao.models.hospital.Hospital;
 import gestao.utils.Geolocalizacao.Coordenadas;

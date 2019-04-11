@@ -1,4 +1,4 @@
-package gestao.respositories;
+package gestao.repositories;
 
 //import gestao.models.paciente.Paciente.Paciente;
 import gestao.models.paciente.Paciente;
