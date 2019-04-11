@@ -29,8 +29,8 @@ public class HospitalGeoRepositoryImpl implements HospitalGeoRepository {
                 " FROM hospital ORDER BY distancia ASC LIMIT 5";
 
         Query query = entityManager.createNativeQuery(sql, Hospital.class);
-        query.setParameter("lon", coordenadas.getLongitude());
-        query.setParameter("lat", coordenadas.getLatitude());
+        query.setParameter("lon", coordenadas.getLng());
+        query.setParameter("lat", coordenadas.getLat());
 
         return query.getResultList();
 

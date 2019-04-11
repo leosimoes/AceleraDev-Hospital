@@ -11,32 +11,32 @@ public class Coordenadas {
     @JsonProperty("lat")
     @Range(min = -90, max = 90,  message = "A longitude deve estar contida no intervalo [-90, 90]")
     @NotNull(message = "A latitude não deve ser nula e deve ser um número real.")
-    private Double latitude;
+    private Double lat;
 
     @JsonProperty("lon")
     @Range(min = -180, max = 180, message = "A longitude deve estar contida no intervalo [-180, 180]")
     @NotNull(message = "A longitude não deve ser nula e deve ser um número real.")
-    private Double longitude;
+    private Double lng;
 
     public Coordenadas(Double longitude, Double latitude) {
-        this.longitude = longitude;
-        this.latitude = latitude;
+        this.lng = longitude;
+        this.lat = latitude;
     }
 
 
-    public Double getLongitude() {
-        return longitude;
+    public Double getLat() {
+        return lat;
     }
 
-    public Double getLatitude() {
-        return latitude;
+    public void setLat(Double lat) {
+        this.lat = lat;
     }
 
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
+    public Double getLng() {
+        return lng;
     }
 
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
+    public void setLng(Double lng) {
+        this.lng = lng;
     }
 }

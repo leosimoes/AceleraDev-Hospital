@@ -34,4 +34,15 @@ public class HospitalDTO {
         return leitos;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public void setLeitos(Map<TipoLeitoENUM, Integer> leitos) {
+        this.leitos = leitos;
+    }
 }

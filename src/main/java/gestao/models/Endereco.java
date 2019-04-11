@@ -108,8 +108,8 @@ public class Endereco {
 
 
     public void setCoordenadas(Coordenadas coordenadas) {
-        this.setLongitude(coordenadas.getLongitude());
-        this.setLatitude(coordenadas.getLatitude());
+        this.setLongitude(coordenadas.getLng());
+        this.setLatitude(coordenadas.getLat());
     }
 
     public Coordenadas getCoordenadas() {

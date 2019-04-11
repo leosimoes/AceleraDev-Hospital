@@ -40,6 +40,8 @@ public class HospitalService {
 
         endereco.setCoordenadas(coordenadas);
         hospital.setEndereco(endereco);
+        hospital.setLatitude(endereco.getLatitude());
+        hospital.setLongitude(endereco.getLongitude());
 
         return this.repository.save(hospital);
     }

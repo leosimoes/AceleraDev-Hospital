@@ -1,6 +1,7 @@
 package gestao.models.paciente;
 
 
+import org.hibernate.validator.constraints.UniqueElements;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
@@ -17,8 +18,8 @@ public class Paciente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @CPF
-    //@UniqueElements
     @NotBlank
     private String cpf;
     @NotBlank

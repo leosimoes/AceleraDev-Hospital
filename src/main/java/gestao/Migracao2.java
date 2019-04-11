@@ -23,7 +23,7 @@ import java.util.*;
 import static gestao.models.leito.TipoLeitoENUM.*;
 
 @Component
-public class Migracao implements InitializingBean {
+public class Migracao2 implements InitializingBean {
 
     @Autowired
     private HospitalService hospitalService;
