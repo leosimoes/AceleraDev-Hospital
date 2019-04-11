@@ -21,7 +21,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
-
+/**
+ * Classe responsável pela implementação dos serviços relacionados a solicitações de banco de sangue.
+ *
+ * @author Michael Ulguim
+ *
+ */
 @Service
 public class HospitalService {
 

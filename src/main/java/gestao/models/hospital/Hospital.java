@@ -12,7 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
+/**
+ *
+ * @author Michael Ulguim
+ *
+ */
 @Entity
 public class Hospital {
 

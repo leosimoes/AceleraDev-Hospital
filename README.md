@@ -49,6 +49,7 @@ Retorna as informações do hospital, por exemplo:
 - Número de leitos
 - Números de leitos disponíveis
 
+
 ### /api/v1/hospitais/{id}/estoque
 
 Método: GET
@@ -78,3 +79,46 @@ Retorna todas as informações do paciente cadastrado, por exemplo:
 - Data de nascimento
 - Sexo
 - Data de entrada no hospital.
+
+###Tipos de Leito Válido
+#### Cirúrgico
+    CIR_BUCOMAXILOFACIAL
+    CIR_CARDIOLOGIA
+    CIR_CIRURGIAGERAL
+    CIR_ENDOCRINOLOGIA
+    CIR_GASTROENTEROLOGIA
+    CIR_GINECOLOGIA
+    CIR_NEFROLOGIA_UROLOGIA
+    CIR_NEUROCIRURGIA
+    CIR_OFTALMOLOGIA
+    CIR_ONCOLOGIA
+    CIR_ORTOPEDIA_TRAUMATOLOGIA
+    CIR_OTORRINOLARINGOLOGIA
+    CIR_PLASTICA
+    CIR_TORAXICA
+    CIR_TRANSPLANTE
+    CIR_QUEIMADOADULTO
+    CIR_QUEIMADOPEDIATRICO
+####Clínico:
+    CLI_AIDS,
+    CLI_CARDIOLOGIA
+    CLI_CLINICAGERAL
+    CLI_DERMATOLOGIA
+    CLI_GERIATRIA
+    CLI_HANSENOLOGIA
+    CLI_HEMATOLOGIA
+    CLI_LEITO_DIA
+    CLI_NEFRO_UROLOGIA
+    CLI_NEONATOLOGIA
+    CLI_NEUROLOGIA
+    CLI_ONCOLOGIA
+    CLI_PNEUMOLOGIA
+    CLI_SAUDEMENTAL
+    CLI_QUEIMADOADULTO
+    CLI_QUEIMADOPEDIÁTRICO
+####Obstétrico:
+    OBS_CIRURGICA
+    OBS_CLINICA
+####Pediátrico
+    PED_CIRURGICO
+    PED_PEDIATRICA

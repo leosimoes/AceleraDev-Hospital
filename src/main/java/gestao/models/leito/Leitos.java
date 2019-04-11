@@ -1,7 +1,11 @@
 package gestao.models.leito;
 
 import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
-
+/**
+ *
+ * @author Michael Ulguim
+ *
+ */
 public class Leitos {
 
     @JsonEnumDefaultValue

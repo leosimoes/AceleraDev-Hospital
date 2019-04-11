@@ -8,6 +8,11 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Map;
 
+/**
+ *
+ * @author Michael Ulguim
+ *
+ */
 public class HospitalDTO {
     @NotBlank(message = "O hospital tem que ter nome.")
     private String nome;
