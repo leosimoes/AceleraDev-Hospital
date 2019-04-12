@@ -1,13 +1,13 @@
 package gestao.config;
 
-import gestao.models.produto.Produto;
-import gestao.models.hospital.Endereco;
 import gestao.models.banco_de_sangue.BancoDeSangueENUM;
+import gestao.models.hospital.Endereco;
 import gestao.models.hospital.Hospital;
 import gestao.models.hospital.HospitalDTO;
 import gestao.models.leito.TipoLeitoENUM;
 import gestao.models.paciente.Paciente;
 import gestao.models.paciente.SexoPacienteENUM;
+import gestao.models.produto.Produto;
 import gestao.repositories.hospital.HospitalRepository;
 import gestao.services.HospitalService;
 import gestao.services.PacienteService;
@@ -17,12 +17,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 
-import static org.mockito.Mockito.mock;
-
 import java.time.LocalDate;
 import java.util.*;
 
 import static gestao.models.leito.TipoLeitoENUM.*;
+import static org.mockito.Mockito.mock;
 
 @Component
 public class Migracao2 implements InitializingBean {

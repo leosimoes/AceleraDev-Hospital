@@ -1,7 +1,6 @@
 package gestao.utils.errors;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
-import gestao.exceptions.bases.RecursoNaoEncontradoException;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;

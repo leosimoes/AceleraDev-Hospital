@@ -2,10 +2,10 @@ package gestao.services;
 
 
 import gestao.exceptions.HospitalNaoEncontradoException;
-import gestao.models.hospital.Endereco;
 import gestao.models.banco_de_sangue.BancoDeSangueFactory;
-import gestao.models.hospital.HospitalDTO;
+import gestao.models.hospital.Endereco;
 import gestao.models.hospital.Hospital;
+import gestao.models.hospital.HospitalDTO;
 import gestao.repositories.hospital.HospitalRepository;
 import gestao.utils.geolocalizacao.Coordenadas;
 import gestao.utils.geolocalizacao.GoogleApi;

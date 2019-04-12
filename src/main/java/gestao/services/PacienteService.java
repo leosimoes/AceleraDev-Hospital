@@ -3,10 +3,8 @@ package gestao.services;
 import gestao.exceptions.paciente.PacienteNaoEncontradoException;
 import gestao.models.paciente.HistoricoPaciente;
 import gestao.models.paciente.Paciente;
-import gestao.exceptions.paciente.PacienteNaoEncontradoException;
 import gestao.repositories.HistoricoPacienteRepository;
 import gestao.repositories.PacienteRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;

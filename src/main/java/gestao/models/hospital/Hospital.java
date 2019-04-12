@@ -1,9 +1,9 @@
 package gestao.models.hospital;
 
 
-import gestao.models.produto.Produto;
 import gestao.models.banco_de_sangue.BancoDeSangueENUM;
 import gestao.models.leito.TipoLeitoENUM;
+import gestao.models.produto.Produto;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -41,7 +41,7 @@ public class Hospital {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     List<Produto> produtos;
 
-    Hospital() {
+    public Hospital() {
 
     }
 

@@ -2,12 +2,11 @@ package gestao.utils.geolocalizacao;
 
 import gestao.exceptions.CoordenadaNaoEncontradaException;
 import gestao.models.hospital.Endereco;
-
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-import org.json.JSONArray;
 
 public class GoogleApi implements InterfaceGeolocalizacaoAPI {
 

@@ -8,13 +8,10 @@ import gestao.models.hospital.Hospital;
 import gestao.models.leito.Leitos;
 import gestao.models.leito.TipoLeitoENUM;
 import gestao.models.paciente.HistoricoPaciente;
-
-import gestao.repositories.HistoricoPacienteRepository;
 import gestao.models.paciente.Paciente;
+import gestao.repositories.HistoricoPacienteRepository;
 import gestao.repositories.PacienteRepository;
-import gestao.exceptions.paciente.PacienteSemCheckoutException;
 import gestao.repositories.hospital.HospitalRepository;
-
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
