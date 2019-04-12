@@ -103,7 +103,7 @@ public class Migracao2 implements InitializingBean {
         Paciente paciente = new Paciente();
         paciente.setNome("Paciente 1");
         paciente.setDataNascimento(LocalDate.parse("2000-01-01"));
-        paciente.setCpf("141.537.357-44");
+        paciente.setCpf("153.050.877-08");
         paciente.setSexo(SexoPacienteENUM.M);
         pacienteService.salvaPaciente(paciente, result);
 

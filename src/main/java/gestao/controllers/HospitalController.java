@@ -2,6 +2,7 @@ package gestao.controllers;
 
 import gestao.models.hospital.Hospital;
 import gestao.models.hospital.HospitalDTO;
+import gestao.repositories.hospital.HospitalRepository;
 import gestao.services.HospitalService;
 import gestao.utils.geolocalizacao.Coordenadas;
 import io.swagger.annotations.Api;
@@ -22,6 +23,9 @@ public class HospitalController {
 
     @Autowired
     HospitalService service;
+
+    @Autowired
+    HospitalRepository hospitalRepository;
 
 
     @GetMapping
@@ -71,7 +75,7 @@ public class HospitalController {
     @GetMapping(value = "/encaminhamento")
     @ApiOperation(value="Buscar Hospital próximo por coordenada")
     public ResponseEntity<List<Hospital>> findNearHospital(@Valid Coordenadas geocolocalizacao) {
-        List<Hospital> hospitais = service.procurarPorHospitaisProximos(geocolocalizacao);
+        List<Hospital> hospitais = hospitalRepository.buscarMaisProximosPorGeo(geocolocalizacao);
         return ResponseEntity.ok().body(hospitais);
     }
 

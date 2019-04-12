@@ -25,18 +25,16 @@ public class BancoDeSangueSolicitacaoService {
     @Autowired
     HospitalService hospitalService;
 
-    private final HospitalRepository hospitalRepository;
+    @Autowired
+    HospitalRepository hospitalRepository;
 
-    public BancoDeSangueSolicitacaoService(HospitalRepository hospitalRepository) {
-        this.hospitalRepository = hospitalRepository;
-    }
 
     public Hospital solicitarSangue(long id, BancoDeSangueENUM tipo, Integer quantidadeSolicitada) {
 
         Hospital hospitalSolicitante = hospitalRepository.findById(id).get();
         List<BancoDeSangueENUM> sanguesCompativeis = bancoDeSangueService.compatibilidadeSanguinea(tipo);
 
-        List<Hospital> hospitaisCandidatos = hospitalService.procurarPorHospitaisProximos(hospitalSolicitante.getEndereco().getCoordenadas());
+        List<Hospital> hospitaisCandidatos = hospitalRepository.buscarMaisProximosPorGeo(hospitalSolicitante.getEndereco().getCoordenadas());
 
         for (Hospital hospitalMaisProximoDoador : hospitaisCandidatos) {
             if (hospitalMaisProximoDoador != hospitalSolicitante) {

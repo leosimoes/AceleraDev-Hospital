@@ -1,6 +1,7 @@
 package gestao.services;
 
 import gestao.models.hospital.Hospital;
+import gestao.repositories.hospital.HospitalGeoRepository;
 import gestao.repositories.hospital.HospitalRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +15,13 @@ public class ProdutoSolicitacaoService {
     @Autowired
     HospitalRepository hospitalRepository;
 
+
     @Autowired
     HospitalService hospitalService;
 
     public Hospital solicitarProduto(Long id, String nome, Integer quantidade){
         Hospital hospitalSolicitante = hospitalRepository.findById(id).get();
-        List<Hospital> hospitaisCandidatos = hospitalService.procurarPorHospitaisProximos(hospitalSolicitante.getEndereco().getCoordenadas());
+        List<Hospital> hospitaisCandidatos = hospitalRepository.buscarMaisProximosPorGeo(hospitalSolicitante.getEndereco().getCoordenadas());
 
         Optional<Hospital> hospitalMaisProximoDoador = hospitaisCandidatos.stream().filter(h -> h.hasEstoque(nome, quantidade)).findFirst();
         if(hospitalMaisProximoDoador.isPresent()){
