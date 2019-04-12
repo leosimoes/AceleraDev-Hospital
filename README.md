@@ -80,7 +80,7 @@ Retorna todas as informações do paciente cadastrado, por exemplo:
 - Sexo
 - Data de entrada no hospital.
 
-###Tipos de Leito Válido
+### Tipos de Leito Válido
 #### Cirúrgico
     CIR_BUCOMAXILOFACIAL
     CIR_CARDIOLOGIA
@@ -99,7 +99,8 @@ Retorna todas as informações do paciente cadastrado, por exemplo:
     CIR_TRANSPLANTE
     CIR_QUEIMADOADULTO
     CIR_QUEIMADOPEDIATRICO
-####Clínico:
+    
+#### Clínico:
     CLI_AIDS,
     CLI_CARDIOLOGIA
     CLI_CLINICAGERAL
@@ -116,9 +117,9 @@ Retorna todas as informações do paciente cadastrado, por exemplo:
     CLI_SAUDEMENTAL
     CLI_QUEIMADOADULTO
     CLI_QUEIMADOPEDIÁTRICO
-####Obstétrico:
+#### Obstétrico:
     OBS_CIRURGICA
     OBS_CLINICA
-####Pediátrico
+#### Pediátrico
     PED_CIRURGICO
     PED_PEDIATRICA
